@@ -45,41 +45,49 @@ class Cars:
     def MoveCar(self, Board, Colour):
         if self.Orientation == "H":
             tap = False
-            Column2 = input("Enter Column: ")
+            Column2 = input("Enter Column(0-5): ")
             if Column2.isdigit():
                 Column2 = int(Column2)
                 while Column2 < 0 or Column2 > 5:
-                    Column2 = int(input("Enter moving Column: "))
+                    Column2 = int(input("Enter moving Column (0-5): "))
                 self.Column = int(Column2)
                 Row = self.Row
                 tap = True
                 while tap == False:
-                    Column2 = input("Enter Column: ")
+                    Column2 = input("Enter Column (0-5): ")
                 
         else:
             top = False
-            Row2 = input("Enter moving Row: ")
+            Row2 = input("Enter moving Row (0-5): ")
             if Row2.isdigit():
                 Row2 = int(Row2)
                 while Row2 < 0 or Row2 > 5:
-                    Row2 = int(input("Enter moving Row: "))
+                    Row2 = int(input("Enter moving Row (0-5): "))
                 self.Row = Row2
                 Column = self.Column
                 top = True
                 while top == False:
-                    Row2 = int(input("Enter moving Row: "))
+                    Row2 = int(input("Enter moving Row (0-5): "))
                     
 
         Set = ValidateCars(self ,Board, self.Row, self.Column)
         if Set == True:
             RemoveCars(Board,self.Colour)
+            CheckCars(Board, self.Column, self.Row, self.Colour, self.Orientation)
             self.RunCars(Board)
             
-#def CheckCars(Board, Column, Row, Colour, Orientation):
+def CheckCars(Board, Column, Row, Colour, Orientation):
+    Check = []
+    for i in Board[Row]:
+        Check.append(i)
+    print(Check)
+    
     #make a row into an array and iterate throu, find colour using,
     #iterate from that until get till anotehr colour
     # change underscore to lowcase of given colour.
     #iterate from lowercase to uppercase.
+
+
     
 
 
